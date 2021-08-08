@@ -1,4 +1,7 @@
 <?php
+/*
+**  Routing class
+*/
 
 namespace App\Core {
 
@@ -9,20 +12,21 @@ namespace App\Core {
 
     class Router {
 
+        /*
+        **  Parse url and return necessary controller
+        */
         public function getController(): IController {
 
-            /*
-            **  Get controller path from url if exists
-            */
+            //Get controller path from url if exists
+
             $controller = '';
 
             if(array_key_exists('url', $_GET)) {
                 $controller = $_GET['url'];
             }
 
-            /*
-            **  Get url query if exists
-            */
+            //Get url query if exists
+
             $params = [];
             
             $parsedURL = parse_url($_SERVER['REQUEST_URI']);
